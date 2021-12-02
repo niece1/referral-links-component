@@ -1,0 +1,36 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+.referral-page {
+    width: 100%;
+    height: auto;
+}
+
+.referral-page .referral-page-wrapper {
+    width: 90%;
+    margin: 60px auto;
+}
+
+.referral-page .referral-page-wrapper h2 {
+    margin-bottom: 15px;
+}
+
+.referral-page .referral-page-wrapper form .form-group input {
+    border: 1px solid #cccccc;
+    padding: 10px 5px;
+    border-radius: 3px;
+    width: 50%;
+}
+
+.referral-page .referral-page-wrapper form button {
+    padding: 5px 12px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    outline: none;
+    letter-spacing: 1px;
+    border-radius: 3px;
+    background-color: #0084ff;
+    color: #fff;
+    margin-top: 15px;
+}

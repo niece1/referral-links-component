@@ -28,7 +28,6 @@ services:
         depends_on:
             - php
             - mysql
-            - redis
             - mailhog
         restart: unless-stopped
         networks:

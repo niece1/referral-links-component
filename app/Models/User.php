@@ -41,4 +41,12 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+    
+    /**
+     * Get comments associated with specified user
+     */
+    public function referrals()
+    {
+        return $this->hasMany(Referral::class);
+    }
 }
