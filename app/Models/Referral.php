@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
+use Illuminate\Database\Eloquent\Builder;
 
 class Referral extends Model
 {
@@ -37,5 +38,28 @@ class Referral extends Model
         static::creating(function (Referral $referral) {
             $referral->token = Str::random(50);
         });
+    }
+    
+    /**
+     * .
+     *
+     * @return void
+     */
+    public function scopeWhereNotCompleted(Builder $builder)
+    {
+        return $builder->where('completed', false);
+    }
+    
+    /**
+     * .
+     *
+     * @return void
+     */
+    public function scopeWhereNotFromUser(Builder $builder, ?User $user)
+    {
+        if(!$user) {
+            return $builder;
+        }
+        return $builder->where('user_id', '!=', $user->id);
     }
 }
