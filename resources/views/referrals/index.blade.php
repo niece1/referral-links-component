@@ -7,9 +7,44 @@
         </h2>
     </x-slot>
     
-    <!-- Referral page -->
+    <!-- Referral form widget -->
     <section class="referral-page">
         <div class="referral-page-wrapper">
+            
+            <!-- Referral list -->
+            <div class="referral-list">
+                <h2>List of referrals</h2>
+                @if($referrals->count())
+                <table>
+                    <tr>
+                        <th>Email</th>
+                        <th>Date</th>
+                        <th>Completed</th>
+                    </tr>
+                    @foreach($referrals as $referral)
+                    <tr>
+                        <td>
+                            {{ $referral->email }}
+                        </td>
+                        <td>
+                            {{ $referral->created_at->toDateString() }}
+                        </td>
+                        <td>
+                            @if ($referral->completed)
+                                Yes
+                            @else
+                            No <a href="{{ route('index', ['referral' => $referral->token]) }}" target="_blank">Link</a>
+                            @endif
+                        </td>
+                    </tr>
+                    @endforeach
+                </table>
+                @else
+                <p>No referrals</p>
+                @endif
+            </div>
+            <!-- /.Referral list -->
+            
             <div class="referral-form">
                 <h2>Enter email</h2>
                 <!-- Referral form -->
@@ -25,6 +60,6 @@
             </div>
         </div>
     </section>
-<!-- /.Referral page -->
+<!-- /.Referral form widget -->
 </x-app-layout>
 <!-- /.Layout -->

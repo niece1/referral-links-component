@@ -23,9 +23,10 @@ class ReferralController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        return view('referrals.index');
+        $referrals = $request->user()->referrals()->orderBy('completed', 'asc')->get();
+        return view('referrals.index', compact('referrals'));
     }
     
     /**
