@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ReferralController;
+use App\Http\Controllers\SubscriptionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,4 +28,9 @@ require __DIR__.'/auth.php';
 Route::group(['prefix' => 'referrals'], function () {
     Route::get('/', [ReferralController::class, 'index'])->name('referrals');
     Route::post('/', [ReferralController::class, 'store']);
+});
+
+Route::group(['prefix' => 'subscriptions'], function () {
+    Route::get('/', [SubscriptionController::class, 'index'])->name('subscriptions');
+    Route::post('/', [SubscriptionController::class, 'store']);
 });

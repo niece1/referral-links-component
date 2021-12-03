@@ -4,6 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
+use App\Models\Referral;
 
 class SetReferralCookie
 {
@@ -14,7 +15,7 @@ class SetReferralCookie
      * @param  \Closure  $next
      * @return mixed
      */
-    public function handle(Request $request, Closure $next)
+    public function handle($request, Closure $next)
     {
         if ($referral = $request->referral($request->referral)) {
             cookie()->queue(cookie()->forever('referral', $referral->token));

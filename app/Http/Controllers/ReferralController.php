@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\ReferralAcceptedMail;
+use App\Http\Requests\ReferralStoreRequest;
+use App\Rules\NotReferringExisting;
+use App\Rules\NotReferringSelf;
 
 class ReferralController extends Controller
 {
@@ -32,12 +35,11 @@ class ReferralController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\Request  $request
+     * @param  \App\Http\Requests\ReferralStoreRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(
-        Request $request
-    ) {
+    public function store(ReferralStoreRequest $request)
+    {
         $referral = $request->user()->referrals()->create($request->only('email'));
         Mail::to($referral->email)->send(new ReferralAcceptedMail($request->user(), $referral));
 

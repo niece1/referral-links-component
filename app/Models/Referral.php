@@ -40,26 +40,26 @@ class Referral extends Model
         });
     }
     
-    /**
-     * .
-     *
-     * @return void
-     */
+
     public function scopeWhereNotCompleted(Builder $builder)
     {
         return $builder->where('completed', false);
     }
     
-    /**
-     * .
-     *
-     * @return void
-     */
+
     public function scopeWhereNotFromUser(Builder $builder, ?User $user)
     {
         if(!$user) {
             return $builder;
         }
         return $builder->where('user_id', '!=', $user->id);
+    }
+    
+    public function complete()
+    {
+        $this->update([
+            'completed' => true,
+            'completed_at' => now()
+        ]);
     }
 }
