@@ -27,6 +27,7 @@ require __DIR__.'/auth.php';
 
 Route::group(['prefix' => 'referrals'], function () {
     Route::get('/', [ReferralController::class, 'index'])->name('referrals');
+    Route::get('/create', [ReferralController::class, 'create'])->name('referrals.create');
     Route::post('/', [ReferralController::class, 'store']);
 });
 

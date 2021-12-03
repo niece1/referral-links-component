@@ -7,15 +7,20 @@
         </h2>
     </x-slot>
     
-    <!-- Referral form widget -->
-    <section class="referral-page">
-        <div class="referral-page-wrapper">
-            <form action="{{ route('subscriptions') }}" method="POST">
-                <button type="submit" class="button">Pay</button>
-                    @csrf
-            </form>
+    <!-- Subscriptions form widget -->
+    <div class="py-12">
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+                <div class="p-6 bg-white border-b border-gray-200">
+                    <form action="{{ route('subscriptions') }}" method="POST">
+                        <button type="submit" class="button">Buy it</button>
+                        @csrf
+                    </form>
+                </div>
+            </div>
         </div>
-    </section>
-<!-- /.Referral form widget -->
+    </div>
+    <!-- /.Subscriptions form widget -->
+
 </x-app-layout>
 <!-- /.Layout -->
