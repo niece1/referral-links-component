@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Events\ReferralCompleted;
 use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Builder;
 
@@ -61,5 +62,6 @@ class Referral extends Model
             'completed' => true,
             'completed_at' => now()
         ]);
+        event(new ReferralCompleted($this));
     }
 }

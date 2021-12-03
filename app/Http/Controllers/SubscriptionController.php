@@ -26,10 +26,10 @@ class SubscriptionController extends Controller
     public function store(Request $request)
     {
         //dd($request->referral($request()->cookie('referral')));
-        if ($referral = $request->referral($request()->cookie('referral'))) {
+        if ($referral = $request->referral(request()->cookie('referral'))) {
             $referral->complete();
         }
 
-        return redirect()->route('home');
+        return redirect()->route('dashboard');
     }
 }
