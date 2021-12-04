@@ -14,13 +14,13 @@ class ReferralAcceptedMail extends Mailable
     use Queueable, SerializesModels;
     
     /**
-     * A user .
+     * A user that sends an email.
      *
      */
     public $sender;
     
     /**
-     * A user .
+     * A referral URL link that is sent to the recipient.
      *
      */
     public $referral;
@@ -28,6 +28,8 @@ class ReferralAcceptedMail extends Mailable
     /**
      * Create a new message instance.
      *
+     * @param  \App\Models\User $sender
+     * @param  \App\Models\Referral $referral
      * @return void
      */
     public function __construct(User $sender, Referral $referral)

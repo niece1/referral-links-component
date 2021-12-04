@@ -6,8 +6,6 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\ReferralAcceptedMail;
 use App\Http\Requests\ReferralStoreRequest;
-use App\Rules\NotReferringExisting;
-use App\Rules\NotReferringSelf;
 
 class ReferralController extends Controller
 {
@@ -24,11 +22,13 @@ class ReferralController extends Controller
     /**
      * Display referrals listing.
      *
+     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
     public function index(Request $request)
     {
         $referrals = $request->user()->referrals()->orderBy('completed', 'asc')->get();
+        
         return view('referrals.index', compact('referrals'));
     }
     

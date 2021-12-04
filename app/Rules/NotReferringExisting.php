@@ -7,11 +7,16 @@ use App\Models\User;
 
 class NotReferringExisting implements Rule
 {
+    /**
+     * A user that sends a referral.
+     *
+     */
     protected $user;
     
     /**
      * Create a new rule instance.
      *
+     * @param  \App\Models\User $user
      * @return void
      */
     public function __construct(User $user)

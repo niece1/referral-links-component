@@ -32,6 +32,6 @@ Route::group(['prefix' => 'referrals'], function () {
 });
 
 Route::group(['prefix' => 'subscriptions'], function () {
-    Route::get('/', [SubscriptionController::class, 'index'])->name('subscriptions');
+    Route::get('/', [SubscriptionController::class, 'create'])->name('subscriptions');
     Route::post('/', [SubscriptionController::class, 'store']);
 });

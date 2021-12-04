@@ -5,16 +5,6 @@ namespace App\Listeners;
 class ForgetReferralCookie
 {
     /**
-     * Create the event listener.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        //
-    }
-
-    /**
      * Handle the event.
      *
      * @param  object  $event

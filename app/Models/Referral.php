@@ -41,13 +41,24 @@ class Referral extends Model
         });
     }
     
-
+    /**
+     * Scope a query to only include not completed referrals.
+     *
+     * @param  \Illuminate\Database\Eloquent\Builder  $builder
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
     public function scopeWhereNotCompleted(Builder $builder)
     {
         return $builder->where('completed', false);
     }
     
-
+    /**
+     * Scope a query to only include not from user referrals.
+     *
+     * @param  \Illuminate\Database\Eloquent\Builder  $builder
+     * @param  \App\User  $user
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
     public function scopeWhereNotFromUser(Builder $builder, ?User $user)
     {
         if(!$user) {
@@ -56,6 +67,11 @@ class Referral extends Model
         return $builder->where('user_id', '!=', $user->id);
     }
     
+    /*
+     * Update current model.
+     *
+     * @return void
+     */
     public function complete()
     {
         $this->update([

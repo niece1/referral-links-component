@@ -11,7 +11,7 @@ class ReferralCompleted
     use Dispatchable, SerializesModels;
     
     /**
-     * A user .
+     * A referral where occurs current event.
      *
      */
     public $referral;
@@ -19,6 +19,7 @@ class ReferralCompleted
     /**
      * Create a new event instance.
      *
+     * @param  \App\Models\Referral  $referral
      * @return void
      */
     public function __construct(Referral $referral)
