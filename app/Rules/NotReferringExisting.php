@@ -12,7 +12,7 @@ class NotReferringExisting implements Rule
      *
      */
     protected $user;
-    
+
     /**
      * Create a new rule instance.
      *

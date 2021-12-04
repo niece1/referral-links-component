@@ -11,14 +11,15 @@ use App\Models\Referral;
 
 class ReferralAcceptedMail extends Mailable
 {
-    use Queueable, SerializesModels;
-    
+    use Queueable;
+    use SerializesModels;
+
     /**
      * A user that sends an email.
      *
      */
     public $sender;
-    
+
     /**
      * A referral URL link that is sent to the recipient.
      *

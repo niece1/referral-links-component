@@ -8,8 +8,9 @@ use Illuminate\Queue\SerializesModels;
 
 class ReferralCompleted
 {
-    use Dispatchable, SerializesModels;
-    
+    use Dispatchable;
+    use SerializesModels;
+
     /**
      * A referral where occurs current event.
      *

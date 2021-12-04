@@ -18,7 +18,7 @@ class ReferralController extends Controller
     {
         $this->middleware(['auth']);
     }
-    
+
     /**
      * Display referrals listing.
      *
@@ -28,10 +28,10 @@ class ReferralController extends Controller
     public function index(Request $request)
     {
         $referrals = $request->user()->referrals()->orderBy('completed', 'asc')->get();
-        
+
         return view('referrals.index', compact('referrals'));
     }
-    
+
     /**
      * Show the form for creating a new resource.
      *
@@ -41,7 +41,7 @@ class ReferralController extends Controller
     {
         return view('referrals.create');
     }
-    
+
     /**
      * Store a newly created resource in storage.
      *

@@ -11,14 +11,14 @@ use Illuminate\Database\Eloquent\Builder;
 class Referral extends Model
 {
     use HasFactory;
-    
+
     /**
      * The attributes that aren't mass assignable.
      *
      * @var array
      */
     protected $guarded = [];
-    
+
     /**
      * The attributes that should be mutated to dates.
      *
@@ -27,7 +27,7 @@ class Referral extends Model
     protected $dates = [
         'completed_at'
     ];
-    
+
     /**
      * Bootstrap any application services.
      *
@@ -40,7 +40,7 @@ class Referral extends Model
             $referral->token = Str::random(50);
         });
     }
-    
+
     /**
      * Scope a query to only include not completed referrals.
      *
@@ -51,7 +51,7 @@ class Referral extends Model
     {
         return $builder->where('completed', false);
     }
-    
+
     /**
      * Scope a query to only include not from user referrals.
      *
@@ -61,12 +61,12 @@ class Referral extends Model
      */
     public function scopeWhereNotFromUser(Builder $builder, ?User $user)
     {
-        if(!$user) {
+        if (!$user) {
             return $builder;
         }
         return $builder->where('user_id', '!=', $user->id);
     }
-    
+
     /*
      * Update current model.
      *

@@ -15,7 +15,7 @@ class SubscriptionController extends Controller
     {
         return view('subscriptions.create');
     }
-    
+
     /**
      * Store a newly created resource in storage.
      *
