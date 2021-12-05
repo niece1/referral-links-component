@@ -31,13 +31,23 @@ One additional container is included that handles NPM.
 
 Depending on operating system, you may encounter rights problems so make sure you have appropriate writable rights for project folder.
 
+To generate APP_KEY run:
+```
+docker-compose exec php php artisan key:generate
+```
+
+To install dependencies run command:
+```
+docker-compose exec php composer install
+```
+
 In your **.env** file fill in variables related to database, especially pay attention to DB_HOST to be specified as mysql.
 
 MAIL_HOST should be specified as mailhog.
 
 To perform database migrations run:
 ```
-docker-compose run --rm artisan migrate
+docker-compose exec php php artisan migrate
 ```
 
 ## Key features
