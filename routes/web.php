@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ReferralController;
 use App\Http\Controllers\SubscriptionController;
+use App\Models\Invoice;
 
 /*
 |--------------------------------------------------------------------------
