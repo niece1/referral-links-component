@@ -36,3 +36,7 @@ Route::group(['prefix' => 'subscriptions'], function () {
     Route::get('/', [SubscriptionController::class, 'create'])->name('subscriptions');
     Route::post('/', [SubscriptionController::class, 'store']);
 });
+
+Route::get('/hashes', function () {
+    Invoice::create([]);
+});
