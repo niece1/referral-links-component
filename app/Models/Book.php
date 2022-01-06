@@ -6,16 +6,15 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Traits\HasHashes;
 
-class Invoice extends Model
+class Book extends Model
 {
     use HasFactory;
     use HasHashes;
     
     /**
-     * Get books associated with specified invoice.
+     * The attributes that are mass assignable.
+     *
+     * @var array
      */
-    public function books()
-    {
-        return $this->hasMany(Book::class, 'invoice_id', 'hash_id');
-    }
+    protected $fillable = ['invoice_id'];
 }

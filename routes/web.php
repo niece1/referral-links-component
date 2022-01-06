@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ReferralController;
 use App\Http\Controllers\SubscriptionController;
 use App\Models\Invoice;
+use App\Models\Book;
 
 /*
 |--------------------------------------------------------------------------
@@ -39,4 +40,16 @@ Route::group(['prefix' => 'subscriptions'], function () {
 
 Route::get('/hashes', function () {
     Invoice::create([]);
+});
+
+Route::get('/books', function () {
+    $invoice = Invoice::create([]);
+    Book::create([
+        'invoice_id' => $invoice->getId()
+    ]);
+});
+
+Route::get('/invoices', function () {
+    $invoice = Invoice::find(7);
+    dd($invoice->books);
 });
