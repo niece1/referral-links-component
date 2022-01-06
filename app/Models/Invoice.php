@@ -10,7 +10,7 @@ class Invoice extends Model
 {
     use HasFactory;
     use HasHashes;
-    
+
     /**
      * Get books associated with specified invoice.
      */

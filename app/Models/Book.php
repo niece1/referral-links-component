@@ -10,7 +10,7 @@ class Book extends Model
 {
     use HasFactory;
     use HasHashes;
-    
+
     /**
      * The attributes that are mass assignable.
      *
