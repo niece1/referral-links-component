@@ -122,6 +122,10 @@ return [
     'key' => env('APP_KEY'),
 
     'cipher' => 'AES-256-CBC',
+    
+    //App Nick Name
+    
+    'nick_name' => env('NICK_NAME', 'noa'),
 
     /*
     |--------------------------------------------------------------------------
