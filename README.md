@@ -1,7 +1,7 @@
 ![GitHub language count](https://img.shields.io/github/languages/count/niece1/referral-links-component)
 ![GitHub top language](https://img.shields.io/github/languages/top/niece1/referral-links-component)
 ![GitHub repo size](https://img.shields.io/github/repo-size/niece1/referral-links-component)
-![GitHub contributors](https://img.shields.io/github/contributors/niece1/elasticsearch-with-laravel)
+![GitHub contributors](https://img.shields.io/github/contributors/niece1/referral-links-component)
 ![GitHub last commit](https://img.shields.io/github/last-commit/niece1/referral-links-component)
 ![GitHub](https://img.shields.io/github/license/niece1/referral-links-component)
 
