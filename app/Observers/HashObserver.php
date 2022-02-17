@@ -7,6 +7,12 @@ use Vinkla\Hashids\Facades\Hashids;
 
 class HashObserver
 {
+    /**
+     * Handle the model "created" event.
+     *
+     * @param  \Illuminate\Database\Eloquent\Model $model
+     * @return void
+     */
     public function created(Model $model)
     {
         $model->update([

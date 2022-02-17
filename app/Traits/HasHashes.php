@@ -6,17 +6,12 @@ use App\Observers\HashObserver;
 use Illuminate\Support\Str;
 use ReflectionClass;
 
-/**
- *
- * @author test
- */
 trait HasHashes
 {
     /**
-     * Method should be named as trait name.
      * A way to transfer logic from model in order not to be bind to concrete one.
      *
-     * return void
+     * @return void
      */
     public static function bootHasHashes()
     {
@@ -26,16 +21,31 @@ trait HasHashes
         });
     }
 
+    /**
+     * Get a hash name.
+     *
+     * @return string
+     */
     public function getHashNickName()
     {
         return strtolower(Str::limit((new ReflectionClass($this))->getShortName(), 4, ''));
     }
 
+    /**
+     * Get a route key name.
+     *
+     * @return string
+     */
     public function getRouteKeyName()
     {
         return 'hash_id';
     }
 
+    /**
+     * Get model's hash id.
+     *
+     * @return int
+     */
     public function getId()
     {
         return $this->hash_id;
